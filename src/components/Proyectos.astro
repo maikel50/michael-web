@@ -1,0 +1,72 @@
+---
+const proyectos = [
+  {
+    titulo: "Andina Glass",
+    categoria: "Catálogo web",
+    descripcion:
+      "Catálogo digital para una distribuidora de vidrio, aluminio y accesorios. Diseñado para mostrar sus productos de forma clara, profesional y adaptada a dispositivos móviles.",
+    tecnologias: ["Astro", "Tailwind CSS"],
+  },
+  {
+    titulo: "Cursos de Francés en Bruselas",
+    categoria: "Web corporativa",
+    descripcion:
+      "Página web para una asociación de formación en Bruselas, enfocada en presentar sus cursos, servicios y facilitar el contacto e inscripción de nuevos alumnos.",
+    tecnologias: ["WordPress", "CSS", "SEO"],
+  },
+  {
+    titulo: "Used Beverage Machines",
+    categoria: "Catálogo B2B",
+    descripcion:
+      "Web orientada a la venta de maquinaria industrial para líneas de embotellado, con catálogo de productos, información comercial y formularios de contacto para compradores.",
+    tecnologias: ["WordPress", "CSS", "SEO"],
+  },
+];
+---
+
+<section id="proyectos">
+  <div>
+    <span>Proyectos</span>
+
+    <h2>
+      Algunos trabajos que he realizado.
+    </h2>
+
+    <p>
+      Proyectos desarrollados para negocios y organizaciones con necesidades
+      diferentes, desde páginas corporativas hasta catálogos de productos.
+    </p>
+  </div>
+
+  <div>
+    {
+      proyectos.map((proyecto) => (
+        <article>
+          <div>
+            <!-- Más adelante pondremos aquí la imagen del proyecto -->
+          </div>
+
+          <div>
+            <span>{proyecto.categoria}</span>
+
+            <h3>{proyecto.titulo}</h3>
+
+            <p>{proyecto.descripcion}</p>
+
+            <div>
+              {
+                proyecto.tecnologias.map((tecnologia) => (
+                  <span>{tecnologia}</span>
+                ))
+              }
+            </div>
+
+            <a href="#">
+              Ver proyecto
+            </a>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,62 @@
+<section id="contacto">
+  <div>
+    <span>Contacto</span>
+
+    <h2>¿Tienes una idea o proyecto en mente?</h2>
+
+    <p>
+      Cuéntame qué necesitas y hablamos sobre la mejor forma de llevarlo a cabo.
+      Puedes escribirme directamente o enviarme un mensaje mediante el
+      formulario.
+    </p>
+
+    <div>
+      <a href="mailto:TU_CORREO"> Escribirme por email </a>
+
+      <a
+        href="https://wa.me/+34643214453"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Hablar por WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <form>
+    <div>
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" />
+    </div>
+
+    <div>
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" placeholder="tu@email.com" />
+    </div>
+
+    <div>
+      <label for="tipo">¿Qué necesitas?</label>
+
+      <select id="tipo" name="tipo">
+        <option value="">Selecciona una opción</option>
+        <option value="web">Página web</option>
+        <option value="catalogo">Catálogo de productos o servicios</option>
+        <option value="rediseño">Rediseño de una web</option>
+        <option value="mantenimiento">Mantenimiento o cambios</option>
+        <option value="otro">Otro proyecto</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="mensaje">Cuéntame sobre tu proyecto</label>
+
+      <textarea
+        id="mensaje"
+        name="mensaje"
+        rows="6"
+        placeholder="Cuéntame brevemente qué necesitas..."></textarea>
+    </div>
+
+    <button type="submit"> Enviar mensaje </button>
+  </form>
+</section>
