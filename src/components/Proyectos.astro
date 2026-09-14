@@ -4,69 +4,256 @@ const proyectos = [
     titulo: "Andina Glass",
     categoria: "Catálogo web",
     descripcion:
-      "Catálogo digital para una distribuidora de vidrio, aluminio y accesorios. Diseñado para mostrar sus productos de forma clara, profesional y adaptada a dispositivos móviles.",
-    tecnologias: ["Astro", "Tailwind CSS"],
+      "Catálogo digital desarrollado para una distribuidora de vidrio, aluminio y accesorios. Una web pensada para organizar sus productos de forma clara, visual y adaptada a cualquier dispositivo.",
+    tecnologias: ["Astro", "Tailwind CSS", "Responsive"],
+    color: "#DCEEFF",
+    destacado: true,
   },
   {
     titulo: "Cursos de Francés en Bruselas",
     categoria: "Web corporativa",
     descripcion:
-      "Página web para una asociación de formación en Bruselas, enfocada en presentar sus cursos, servicios y facilitar el contacto e inscripción de nuevos alumnos.",
+      "Web para una asociación de formación en Bruselas, enfocada en presentar sus cursos, servicios y facilitar el contacto con nuevos alumnos.",
     tecnologias: ["WordPress", "CSS", "SEO"],
+    color: "#DDF5E8",
+    destacado: false,
   },
   {
     titulo: "Used Beverage Machines",
     categoria: "Catálogo B2B",
     descripcion:
-      "Web orientada a la venta de maquinaria industrial para líneas de embotellado, con catálogo de productos, información comercial y formularios de contacto para compradores.",
+      "Catálogo web orientado a la venta internacional de maquinaria industrial para líneas de embotellado.",
     tecnologias: ["WordPress", "CSS", "SEO"],
+    color: "#FFE2EC",
+    destacado: false,
   },
 ];
+
+const proyectoDestacado = proyectos.find((proyecto) => proyecto.destacado);
+
+const proyectosSecundarios = proyectos.filter(
+  (proyecto) => !proyecto.destacado,
+);
 ---
 
-<section id="proyectos">
-  <div>
-    <span>Proyectos</span>
+<section
+  id="proyectos"
+  class="relative overflow-hidden bg-[#FFF8EE] px-6 py-28 md:px-10 md:py-36"
+>
+  <div class="mx-auto max-w-7xl">
 
-    <h2>
-      Algunos trabajos que he realizado.
-    </h2>
+    <!-- Cabecera -->
+    <div class="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+      <div class="max-w-3xl">
 
-    <p>
-      Proyectos desarrollados para negocios y organizaciones con necesidades
-      diferentes, desde páginas corporativas hasta catálogos de productos.
-    </p>
-  </div>
+        <span
+          class="inline-flex rounded-full border border-black/10
+                 bg-white/70 px-5 py-2 text-sm font-medium"
+        >
+          Proyectos
+        </span>
 
-  <div>
-    {
-      proyectos.map((proyecto) => (
-        <article>
-          <div>
-            <!-- Más adelante pondremos aquí la imagen del proyecto -->
-          </div>
+        <h2
+          class="mt-6 text-4xl font-bold leading-tight tracking-[-0.04em]
+                 text-[#181818] md:text-6xl"
+        >
+          Algunos proyectos en los que he trabajado.
+        </h2>
 
-          <div>
-            <span>{proyecto.categoria}</span>
+      </div>
 
-            <h3>{proyecto.titulo}</h3>
+      <p class="max-w-md text-lg leading-relaxed text-black/60">
+        Cada proyecto parte de una necesidad diferente y busca una solución
+        adaptada al negocio, su contenido y sus objetivos.
+      </p>
+    </div>
 
-            <p>{proyecto.descripcion}</p>
 
-            <div>
-              {
-                proyecto.tecnologias.map((tecnologia) => (
-                  <span>{tecnologia}</span>
-                ))
-              }
+    <!-- Proyectos -->
+    <div class="mt-20 space-y-6">
+
+      {
+        proyectoDestacado && (
+          <article
+            data-reveal="scale"
+            class="group overflow-hidden rounded-[2.5rem] p-6 md:p-10"
+            style={`background-color: ${proyectoDestacado.color};`}
+          >
+
+            <!-- Ventana proyecto destacado -->
+            <div
+              class="project-window relative min-h-[380px]
+                     overflow-hidden rounded-[2rem] bg-[#181818]
+                     md:min-h-[570px]"
+            >
+              <div
+                data-project-media
+                class="absolute inset-[-8%] flex items-center justify-center"
+              >
+
+                <span class="text-sm font-medium text-white/40">
+                  Captura de {proyectoDestacado.titulo}
+                </span>
+
+                <div
+                  class="absolute -left-10 -top-10 h-40 w-40
+                         rounded-full bg-white/10"
+                ></div>
+
+                <div
+                  class="absolute -bottom-16 right-16 h-52 w-52
+                         rounded-full bg-white/10"
+                ></div>
+
+              </div>
             </div>
 
-            <a href="#">
-              Ver proyecto
-            </a>
-          </div>
-        </article>
-      ))
-    }
+
+            <!-- Información -->
+            <div
+              class="grid gap-8 px-2 pb-2 pt-10
+                     md:grid-cols-[1fr_1.2fr] md:items-end"
+            >
+
+              <div>
+                <span
+                  class="text-sm font-medium uppercase tracking-[0.15em]
+                         text-black/40"
+                >
+                  {proyectoDestacado.categoria}
+                </span>
+
+                <h3
+                  class="mt-3 text-4xl font-bold tracking-[-0.04em]
+                         md:text-5xl"
+                >
+                  {proyectoDestacado.titulo}
+                </h3>
+              </div>
+
+
+              <div>
+                <p class="max-w-xl text-lg leading-relaxed text-black/60">
+                  {proyectoDestacado.descripcion}
+                </p>
+
+                <div class="mt-6 flex flex-wrap gap-2">
+                  {
+                    proyectoDestacado.tecnologias.map((tecnologia) => (
+                      <span
+                        class="rounded-full border border-black/10
+                               bg-white/40 px-4 py-2 text-sm"
+                      >
+                        {tecnologia}
+                      </span>
+                    ))
+                  }
+                </div>
+
+                <a
+                  href="#"
+                  class="mt-8 inline-flex items-center gap-2 font-medium
+                         transition-all group-hover:gap-4"
+                >
+                  Ver proyecto
+                  <span>→</span>
+                </a>
+              </div>
+
+            </div>
+
+          </article>
+        )
+      }
+
+
+      <!-- Proyectos secundarios -->
+      <div class="grid gap-6 md:grid-cols-2">
+
+        {
+          proyectosSecundarios.map((proyecto) => (
+            <article
+              data-reveal="scale"
+              class="group overflow-hidden rounded-[2.5rem] p-6 md:p-8"
+              style={`background-color: ${proyecto.color};`}
+            >
+
+              <!-- Ventana proyecto -->
+              <div
+                class="project-window relative min-h-[320px]
+                       overflow-hidden rounded-[2rem] bg-[#181818]"
+              >
+                <div
+                  data-project-media
+                  class="absolute inset-[-8%] flex items-center justify-center"
+                >
+
+                  <span class="text-sm text-white/40">
+                    Captura de {proyecto.titulo}
+                  </span>
+
+                  <div
+                    class="absolute -right-10 -top-10 h-32 w-32
+                           rounded-full bg-white/10"
+                  ></div>
+
+                </div>
+              </div>
+
+
+              <!-- Información -->
+              <div class="px-2 pb-2 pt-8">
+
+                <span
+                  class="text-xs font-medium uppercase tracking-[0.15em]
+                         text-black/40"
+                >
+                  {proyecto.categoria}
+                </span>
+
+                <h3
+                  class="mt-3 text-3xl font-bold tracking-[-0.03em]"
+                >
+                  {proyecto.titulo}
+                </h3>
+
+                <p class="mt-4 leading-relaxed text-black/60">
+                  {proyecto.descripcion}
+                </p>
+
+
+                <div class="mt-6 flex flex-wrap gap-2">
+                  {
+                    proyecto.tecnologias.map((tecnologia) => (
+                      <span
+                        class="rounded-full border border-black/10
+                               bg-white/40 px-3 py-1.5 text-sm"
+                      >
+                        {tecnologia}
+                      </span>
+                    ))
+                  }
+                </div>
+
+
+                <a
+                  href="#"
+                  class="mt-8 inline-flex items-center gap-2 font-medium
+                         transition-all group-hover:gap-4"
+                >
+                  Ver proyecto
+                  <span>→</span>
+                </a>
+
+              </div>
+
+            </article>
+          ))
+        }
+
+      </div>
+
+    </div>
+
   </div>
 </section>

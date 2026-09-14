@@ -1,62 +1,137 @@
-<section id="contacto">
-  <div>
-    <span>Contacto</span>
+<section
+  id="contacto"
+  class="relative overflow-hidden bg-[#FFE2EC] px-6 py-28 md:px-10 md:py-36"
+>
+  <div class="mx-auto max-w-7xl">
+    <div
+      class="grid gap-10 rounded-[2.5rem] bg-[#181818]
+             p-8 text-white md:p-12 lg:grid-cols-[0.9fr_1.1fr]"
+    >
+      <div class="flex flex-col justify-between">
+        <div>
+          <span
+            class="inline-flex rounded-full bg-white/10
+                   px-5 py-2 text-sm font-medium"
+          >
+            Contacto
+          </span>
 
-    <h2>¿Tienes una idea o proyecto en mente?</h2>
+          <h2
+            class="mt-6 text-4xl font-bold leading-tight
+                   tracking-[-0.04em] md:text-6xl"
+          >
+            ¿Tienes una idea o proyecto en mente?
+          </h2>
 
-    <p>
-      Cuéntame qué necesitas y hablamos sobre la mejor forma de llevarlo a cabo.
-      Puedes escribirme directamente o enviarme un mensaje mediante el
-      formulario.
-    </p>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/60">
+            Cuéntame qué necesitas y hablamos sobre la mejor forma de llevarlo a
+            cabo.
+          </p>
+        </div>
 
-    <div>
-      <a href="mailto:TU_CORREO"> Escribirme por email </a>
+        <div class="mt-12 space-y-3 text-sm text-white/50">
+          <p>También puedes escribirme directamente por:</p>
 
-      <a
-        href="https://wa.me/+34643214453"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Hablar por WhatsApp
-      </a>
+          <div class="flex flex-wrap gap-3">
+            <a
+              href="mailto:TU_CORREO"
+              class="rounded-full bg-white/10 px-5 py-3
+                     transition hover:bg-white/20"
+            >
+              Email
+            </a>
+
+            <a
+              href="https://wa.me/TU_NUMERO"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-full bg-white/10 px-5 py-3
+                     transition hover:bg-white/20"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <form class="space-y-5 rounded-[2rem] bg-white p-6 text-[#181818] md:p-8">
+        <div>
+          <label for="nombre" class="mb-2 block text-sm font-medium">
+            Nombre
+          </label>
+
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Tu nombre"
+            class="w-full rounded-2xl border border-black/10
+                   bg-[#FFF8EE] px-4 py-4 outline-none
+                   transition focus:border-black/30"
+          />
+        </div>
+
+        <div>
+          <label for="email" class="mb-2 block text-sm font-medium">
+            Correo electrónico
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="tu@email.com"
+            class="w-full rounded-2xl border border-black/10
+                   bg-[#FFF8EE] px-4 py-4 outline-none
+                   transition focus:border-black/30"
+          />
+        </div>
+
+        <div>
+          <label for="tipo" class="mb-2 block text-sm font-medium">
+            ¿Qué necesitas?
+          </label>
+
+          <select
+            id="tipo"
+            name="tipo"
+            class="w-full rounded-2xl border border-black/10
+                   bg-[#FFF8EE] px-4 py-4 outline-none"
+          >
+            <option value="">Selecciona una opción</option>
+            <option value="web">Página web</option>
+            <option value="catalogo">Catálogo de productos o servicios</option>
+            <option value="rediseño">Rediseño de una web</option>
+            <option value="mantenimiento">Mantenimiento o cambios</option>
+            <option value="otro">Otro proyecto</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="mensaje" class="mb-2 block text-sm font-medium">
+            Cuéntame sobre tu proyecto
+          </label>
+
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="6"
+            placeholder="Cuéntame brevemente qué necesitas..."
+            class="w-full resize-none rounded-2xl border border-black/10
+                   bg-[#FFF8EE] px-4 py-4 outline-none
+                   transition focus:border-black/30"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full rounded-full bg-[#181818]
+                 px-6 py-4 font-medium text-white
+                 transition hover:scale-[1.02]"
+        >
+          Enviar mensaje
+        </button>
+      </form>
     </div>
   </div>
-
-  <form>
-    <div>
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" />
-    </div>
-
-    <div>
-      <label for="email">Correo electrónico</label>
-      <input type="email" id="email" name="email" placeholder="tu@email.com" />
-    </div>
-
-    <div>
-      <label for="tipo">¿Qué necesitas?</label>
-
-      <select id="tipo" name="tipo">
-        <option value="">Selecciona una opción</option>
-        <option value="web">Página web</option>
-        <option value="catalogo">Catálogo de productos o servicios</option>
-        <option value="rediseño">Rediseño de una web</option>
-        <option value="mantenimiento">Mantenimiento o cambios</option>
-        <option value="otro">Otro proyecto</option>
-      </select>
-    </div>
-
-    <div>
-      <label for="mensaje">Cuéntame sobre tu proyecto</label>
-
-      <textarea
-        id="mensaje"
-        name="mensaje"
-        rows="6"
-        placeholder="Cuéntame brevemente qué necesitas..."></textarea>
-    </div>
-
-    <button type="submit"> Enviar mensaje </button>
-  </form>
 </section>
