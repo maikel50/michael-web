@@ -8,6 +8,8 @@ const proyectos = [
     tecnologias: ["Astro", "Tailwind CSS", "Responsive"],
     color: "#DCEEFF",
     destacado: true,
+    imagen: "/andina_glass_captura.webp",
+    url: "https://andinaglass.com",
   },
   {
     titulo: "Cursos de Francés en Bruselas",
@@ -17,6 +19,8 @@ const proyectos = [
     tecnologias: ["WordPress", "CSS", "SEO"],
     color: "#DDF5E8",
     destacado: false,
+    imagen: "/cursodefrances_captura.webp",
+    url: "https://www.cursosdefrancesenbruselas.be/",
   },
   {
     titulo: "Used Beverage Machines",
@@ -26,6 +30,8 @@ const proyectos = [
     tecnologias: ["WordPress", "CSS", "SEO"],
     color: "#FFE2EC",
     destacado: false,
+    imagen: "/aainvest_captura.webp",
+    url: "https://www.aainvest.be/",
   },
 ];
 
@@ -81,32 +87,51 @@ const proyectosSecundarios = proyectos.filter(
           >
 
             <!-- Ventana proyecto destacado -->
-            <div
-              class="project-window relative min-h-[380px]
-                     overflow-hidden rounded-[2rem] bg-[#181818]
-                     md:min-h-[570px]"
+            <a
+              href={proyectoDestacado.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-preview-trigger group/preview relative block
+                    h-[420px] overflow-hidden rounded-[2rem]
+                    bg-[#181818] md:h-[570px]"
             >
+              <!-- Captura visible normalmente -->
+              <img
+                src={proyectoDestacado.imagen}
+                alt={`Captura de la página web ${proyectoDestacado.titulo}`}
+                class="h-full w-full object-cover object-top
+                      transition duration-500
+                      group-hover/preview:scale-[1.02]"
+              />
+
+              <!-- Capa sobre la miniatura -->
               <div
-                data-project-media
-                class="absolute inset-[-8%] flex items-center justify-center"
+                class="absolute inset-0 flex items-center justify-center
+                      bg-black/0 transition duration-300
+                      group-hover/preview:bg-black/20"
               >
-
-                <span class="text-sm font-medium text-white/40">
-                  Captura de {proyectoDestacado.titulo}
+                <span
+                  class="translate-y-3 rounded-full bg-white px-5 py-2
+                        text-sm font-medium text-black opacity-0
+                        transition duration-300
+                        group-hover/preview:translate-y-0
+                        group-hover/preview:opacity-100"
+                >
+                  Ver página completa
                 </span>
-
-                <div
-                  class="absolute -left-10 -top-10 h-40 w-40
-                         rounded-full bg-white/10"
-                ></div>
-
-                <div
-                  class="absolute -bottom-16 right-16 h-52 w-52
-                         rounded-full bg-white/10"
-                ></div>
-
               </div>
-            </div>
+
+              <!-- Vista grande -->
+              <div class="project-full-preview">
+                <div class="project-full-preview-container">
+                  <img
+                    src={proyectoDestacado.imagen}
+                    alt={`Vista completa de ${proyectoDestacado.titulo}`}
+                    class="project-full-preview-image"
+                  />
+                </div>
+              </div>
+            </a>
 
 
             <!-- Información -->
@@ -151,7 +176,7 @@ const proyectosSecundarios = proyectos.filter(
                 </div>
 
                 <a
-                  href="#"
+                  href={proyectoDestacado.url}
                   class="mt-8 inline-flex items-center gap-2 font-medium
                          transition-all group-hover:gap-4"
                 >
@@ -179,26 +204,48 @@ const proyectosSecundarios = proyectos.filter(
             >
 
               <!-- Ventana proyecto -->
-              <div
-                class="project-window relative min-h-[320px]
-                       overflow-hidden rounded-[2rem] bg-[#181818]"
+              <a
+                href={proyecto.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-preview-trigger group/preview relative block
+                      h-[320px] overflow-hidden rounded-[2rem]
+                      bg-[#181818]"
               >
+                <img
+                  src={proyecto.imagen}
+                  alt={`Captura de la página web ${proyecto.titulo}`}
+                  class="h-full w-full object-cover object-top
+                        transition duration-500
+                        group-hover/preview:scale-[1.02]"
+                />
+
                 <div
-                  data-project-media
-                  class="absolute inset-[-8%] flex items-center justify-center"
+                  class="absolute inset-0 flex items-center justify-center
+                        bg-black/0 transition duration-300
+                        group-hover/preview:bg-black/20"
                 >
-
-                  <span class="text-sm text-white/40">
-                    Captura de {proyecto.titulo}
+                  <span
+                    class="translate-y-3 rounded-full bg-white px-5 py-2
+                          text-sm font-medium text-black opacity-0
+                          transition duration-300
+                          group-hover/preview:translate-y-0
+                          group-hover/preview:opacity-100"
+                  >
+                    Ver página completa
                   </span>
-
-                  <div
-                    class="absolute -right-10 -top-10 h-32 w-32
-                           rounded-full bg-white/10"
-                  ></div>
-
                 </div>
-              </div>
+
+                <div class="project-full-preview">
+                  <div class="project-full-preview-container">
+                    <img
+                      src={proyecto.imagen}
+                      alt={`Vista completa de ${proyecto.titulo}`}
+                      class="project-full-preview-image"
+                    />
+                  </div>
+                </div>
+              </a>
 
 
               <!-- Información -->
@@ -237,9 +284,9 @@ const proyectosSecundarios = proyectos.filter(
 
 
                 <a
-                  href="#"
+                  href={proyecto.url}
                   class="mt-8 inline-flex items-center gap-2 font-medium
-                         transition-all group-hover:gap-4"
+                  transition-all group-hover:gap-4"
                 >
                   Ver proyecto
                   <span>→</span>

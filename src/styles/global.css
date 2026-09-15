@@ -165,3 +165,67 @@ body {
   will-change: transform;
   transition: transform 0.1s linear;
 }
+.project-full-preview {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 3rem;
+
+  background: rgba(20, 20, 20, 0.75);
+  backdrop-filter: blur(10px);
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.project-full-preview-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: min(90vw, 1400px);
+  height: 88vh;
+
+  transform: scale(0.94);
+
+  transition: transform 0.35s ease;
+}
+
+.project-full-preview-image {
+  max-width: 100%;
+  max-height: 100%;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 1.5rem;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+/* Solo activamos esto en dispositivos con ratón */
+@media (hover: hover) and (pointer: fine) {
+  .project-preview-trigger:hover .project-full-preview {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .project-preview-trigger:hover
+    .project-full-preview-container {
+    transform: scale(1);
+  }
+}
