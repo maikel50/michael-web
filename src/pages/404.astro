@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Página no encontrada | Michael"
+  description="La página que buscas no existe o ha cambiado de dirección."
+>
+  <main
+    class="relative flex min-h-screen items-center justify-center
+           overflow-hidden bg-[#FFF8EE] px-6 py-24"
+  >
+    <!-- Formas decorativas -->
+    <div
+      class="absolute -left-20 top-20 h-64 w-64
+             rounded-full bg-[#E8E1FF] blur-2xl"
+    >
+    </div>
+
+    <div
+      class="absolute -right-20 bottom-16 h-72 w-72
+             rounded-full bg-[#FFE2EC] blur-2xl"
+    >
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-3xl text-center">
+      <span
+        class="inline-flex rounded-full border border-black/10
+               bg-white/70 px-5 py-2 text-sm font-medium"
+      >
+        Error 404
+      </span>
+
+      <h1
+        class="mt-6 text-6xl font-bold tracking-[-0.06em]
+               text-[#181818] md:text-8xl"
+      >
+        Esta página no existe.
+      </h1>
+
+      <p
+        class="mx-auto mt-6 max-w-xl text-lg leading-relaxed
+               text-black/60"
+      >
+        Puede que el enlace haya cambiado o que la página que buscas ya no esté
+        disponible.
+      </p>
+
+      <div
+        class="mt-10 flex flex-col items-center justify-center
+               gap-4 sm:flex-row"
+      >
+        <a
+          href="/"
+          class="rounded-full bg-[#181818] px-7 py-4
+                 font-medium text-white transition
+                 hover:scale-[1.03]"
+        >
+          Volver al inicio
+        </a>
+
+        <a
+          href="/#contacto"
+          class="rounded-full border border-black/15
+                 bg-white px-7 py-4 font-medium
+                 text-[#181818] transition
+                 hover:bg-black/5"
+        >
+          Contactar
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>
